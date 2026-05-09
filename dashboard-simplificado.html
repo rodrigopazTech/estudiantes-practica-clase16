@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Simplificado</title>
+</head>
+<body>
+    <header>
+        <h1>Panel de Estudiantes</h1>
+        <p>Bienvenido, <span id="nombre_usuario">...</span></p>
+        <button id="btn_logout">Cerrar Sesión</button>
+    </header>
+
+    <hr>
+
+    <main>
+        <!-- Formulario de Registro -->
+        <section>
+            <h3>Registrar Nuevo Estudiante</h3>
+            <form id="form_estudiante">
+                <label>Nombre:</label>
+                <input type="text" name="nombre" required><br><br>
+                <label>Email:</label>
+                <input type="email" name="email" required><br><br>
+                <button type="submit">
+                    <span id="btn_text">Guardar Estudiante</span>
+                    <span id="spinner_form" style="display:none;">...</span>
+                </button>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Listado de Estudiantes -->
+        <section>
+            <h3>Listado de Estudiantes</h3>
+            <button onclick="cargarEstudiantes()">Refrescar Tabla</button>
+            <br><br>
+            <table border="1" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-estudiantes">
+                    <!-- Data inyectada por JS -->
+                </tbody>
+            </table>
+            <div id="no-data" style="display:none;">No hay datos para mostrar.</div>
+        </section>
+    </main>
+
+    <!-- Enlace al JS simplificado -->
+    <script src="js/dashboard-simplificado.js"></script>
+</body>
+</html>

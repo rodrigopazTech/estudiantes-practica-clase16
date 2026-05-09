@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Simplificado</title>
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+    
+    <!-- Mensaje de error (oculto por defecto) -->
+    <div id="error_msg" style="display:none; color:red;">
+        <strong>Error:</strong> <span id="error_text"></span>
+    </div>
+
+    <form id="form_login">
+        <div>
+            <label>Usuario:</label><br>
+            <input type="text" id="usuario" name="usuario" required>
+        </div>
+        <br>
+        <div>
+            <label>Contraseña:</label><br>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <br>
+        <button type="submit">
+            <span id="btn_text">Ingresar</span>
+            <span id="spinner" style="display:none;">...</span>
+        </button>
+    </form>
+
+    <p><small>Prueba con: profesor / clase14</small></p>
+
+    <!-- Enlace al JS simplificado -->
+    <script src="js/login-simplificado.js"></script>
+</body>
+</html>

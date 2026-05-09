@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Estudiantes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f4f7f6;
+            padding-top: 30px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #spinner_form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra superior con info de sesión -->
+    <nav class="navbar navbar-light bg-white shadow-sm mb-4">
+        <div class="container">
+            <span class="navbar-brand">
+                <i class="bi bi-mortarboard-fill text-primary"></i> Sistema de Estudiantes
+            </span>
+            <div>
+                <span class="me-3 text-muted">
+                    <i class="bi bi-person-circle"></i>
+                    <span id="nombre_usuario">Cargando...</span>
+                </span>
+                <button id="btn_logout" class="btn btn-outline-danger btn-sm">
+                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <!-- Formulario -->
+            <div class="col-md-4 mb-4">
+                <div class="card p-4">
+                    <h5 class="mb-3 text-primary">
+                        <i class="bi bi-person-plus-fill"></i> Registrar Estudiante
+                    </h5>
+                    <form id="form_estudiante">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <span id="btn_text">Guardar Estudiante</span>
+                            <div id="spinner_form" class="spinner-border spinner-border-sm" role="status"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tabla -->
+            <div class="col-md-8">
+                <div class="card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="text-primary m-0">
+                            <i class="bi bi-list-ul"></i> Listado de Estudiantes
+                        </h5>
+                        <button onclick="cargarEstudiantes()" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-arrow-clockwise"></i> Refrescar
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lista-estudiantes">
+                                <!-- Aquí se inyecta la data vía JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="no-data" class="text-center py-4 d-none">
+                        <i class="bi bi-inbox text-muted" style="font-size: 3rem;"></i>
+                        <p class="text-muted mt-2">No hay estudiantes registrados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
